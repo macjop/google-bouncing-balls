@@ -4,13 +4,179 @@ $(function() {
 	var canvasWidth;
 	var ctx;
 	var dt = 0.1;
+	var a = 200;
+	var b =-150;
 	
 	var pointCollection;
 	
 	function init() {
 		updateCanvasDimensions();
 		
-		var g = [new Point(202, 78, 0.0, 9, "#ed9d33"), new Point(348, 83, 0.0, 9, "#d44d61"), new Point(256, 69, 0.0, 9, "#4f7af2"), new Point(214, 59, 0.0, 9, "#ef9a1e"), new Point(265, 36, 0.0, 9, "#4976f3"), new Point(300, 78, 0.0, 9, "#269230"), new Point(294, 59, 0.0, 9, "#1f9e2c"), new Point(45, 88, 0.0, 9, "#1c48dd"), new Point(268, 52, 0.0, 9, "#2a56ea"), new Point(73, 83, 0.0, 9, "#3355d8"), new Point(294, 6, 0.0, 9, "#36b641"), new Point(235, 62, 0.0, 9, "#2e5def"), new Point(353, 42, 0.0, 8, "#d53747"), new Point(336, 52, 0.0, 8, "#eb676f"), new Point(208, 41, 0.0, 8, "#f9b125"), new Point(321, 70, 0.0, 8, "#de3646"), new Point(8, 60, 0.0, 8, "#2a59f0"), new Point(180, 81, 0.0, 8, "#eb9c31"), new Point(146, 65, 0.0, 8, "#c41731"), new Point(145, 49, 0.0, 8, "#d82038"), new Point(246, 34, 0.0, 8, "#5f8af8"), new Point(169, 69, 0.0, 8, "#efa11e"), new Point(273, 99, 0.0, 8, "#2e55e2"), new Point(248, 120, 0.0, 8, "#4167e4"), new Point(294, 41, 0.0, 8, "#0b991a"), new Point(267, 114, 0.0, 8, "#4869e3"), new Point(78, 67, 0.0, 8, "#3059e3"), new Point(294, 23, 0.0, 8, "#10a11d"), new Point(117, 83, 0.0, 8, "#cf4055"), new Point(137, 80, 0.0, 8, "#cd4359"), new Point(14, 71, 0.0, 8, "#2855ea"), new Point(331, 80, 0.0, 8, "#ca273c"), new Point(25, 82, 0.0, 8, "#2650e1"), new Point(233, 46, 0.0, 8, "#4a7bf9"), new Point(73, 13, 0.0, 8, "#3d65e7"), new Point(327, 35, 0.0, 6, "#f47875"), new Point(319, 46, 0.0, 6, "#f36764"), new Point(256, 81, 0.0, 6, "#1d4eeb"), new Point(244, 88, 0.0, 6, "#698bf1"), new Point(194, 32, 0.0, 6, "#fac652"), new Point(97, 56, 0.0, 6, "#ee5257"), new Point(105, 75, 0.0, 6, "#cf2a3f"), new Point(42, 4, 0.0, 6, "#5681f5"), new Point(10, 27, 0.0, 6, "#4577f6"), new Point(166, 55, 0.0, 6, "#f7b326"), new Point(266, 88, 0.0, 6, "#2b58e8"), new Point(178, 34, 0.0, 6, "#facb5e"), new Point(100, 65, 0.0, 6, "#e02e3d"), new Point(343, 32, 0.0, 6, "#f16d6f"), new Point(59, 5, 0.0, 6, "#507bf2"), new Point(27, 9, 0.0, 6, "#5683f7"), new Point(233, 116, 0.0, 6, "#3158e2"), new Point(123, 32, 0.0, 6, "#f0696c"), new Point(6, 38, 0.0, 6, "#3769f6"), new Point(63, 62, 0.0, 6, "#6084ef"), new Point(6, 49, 0.0, 6, "#2a5cf4"), new Point(108, 36, 0.0, 6, "#f4716e"), new Point(169, 43, 0.0, 6, "#f8c247"), new Point(137, 37, 0.0, 6, "#e74653"), new Point(318, 58, 0.0, 6, "#ec4147"), new Point(226, 100, 0.0, 5, "#4876f1"), new Point(101, 46, 0.0, 5, "#ef5c5c"), new Point(226, 108, 0.0, 5, "#2552ea"), new Point(17, 17, 0.0, 5, "#4779f7"), new Point(232, 93, 0.0, 5, "#4b78f1")];
+		//M
+		var g = [new Point(0-a, 200+b, 0.0, 17, "#0B0BB8"),
+		new Point(0-a, 165+b, 0.0, 12, "#6379DB"),
+		new Point(0-a, 130+b, 0.0, 14, "#0B0BB8"),
+		new Point(0-a, 100+b, 0.0, 12, "#6379DB"),
+		new Point(0-a, 75+b, 0.0, 11, "#0B0BB8"),
+		new Point(0-a, 55+b, 0.0, 13, "#6379DB"),
+		new Point(0-a, 35+b, 0.0, 12, "#0B0BB8"),
+		new Point(0-a, 5+b, 0.0, 18, "#6379DB"),
+		
+		new Point(20-a, 35+b, 0.0, 10, "#0B0BB8"),
+		new Point(30-a, 55+b, 0.0, 13, "#6379DB"),
+		new Point(35-a, 75+b, 0.0, 11, "#0B0BB8"),
+		new Point(45-a, 100+b, 0.0, 12, "#6379DB"),
+		new Point(55-a, 130+b, 0.0, 13, "#0B0BB8"),
+		new Point(65-a, 160+b, 0.0, 11, "#6379DB"),
+		new Point(75-a, 185+b, 0.0, 13, "#0B0BB8"),
+		
+		new Point(95-a, 165+b, 0.0, 10, "#6379DB"),
+		new Point(100-a, 145+b, 0.0, 13, "#0B0BB8"),
+		new Point(110-a, 125+b, 0.0, 11, "#6379DB"),
+		new Point(120-a, 100+b, 0.0, 12, "#0B0BB8"),
+		new Point(130-a, 70+b, 0.0, 13, "#6379DB"),
+		new Point(140-a, 40+b, 0.0, 11, "#0B0BB8"),
+		new Point(150-a, 5+b, 0.0, 18, "#6379DB"),
+		
+		new Point(0-a, 170+b, 0.0, 10, "#0B0BB8"),
+		new Point(0-a, 130+b, 0.0, 14, "#6379DB"),
+		new Point(0-a, 100+b, 0.0, 12, "#0B0BB8"),
+		new Point(0-a, 75+b, 0.0, 11, "#6379DB"),
+		new Point(0-a, 55+b, 0.0, 12, "#0B0BB8"),
+		new Point(0-a, 35+b, 0.0, 14, "#6379DB"),
+		new Point(0-a, 5+b, 0.0, 18, "#0B0BB8"),
+		
+		new Point(165-a, 200+b, 0.0, 18, "#6379DB"),
+		new Point(165-a, 160+b, 0.0, 14, "#0B0BB8"),
+		new Point(165-a, 130+b, 0.0, 12, "#6379DB"),
+		new Point(165-a, 100+b, 0.0, 11, "#0B0BB8"),
+		new Point(165-a, 75+b, 0.0, 13, "#6379DB"),
+		new Point(165-a, 55+b, 0.0, 10, "#0B0BB8"),
+		new Point(165-a, 35+b, 0.0, 12, "#6379DB"),
+		
+		//A
+		
+		new Point(210-a, 100+b, 0.0, 15, "#0B7306"),
+		new Point(235-a, 100+b, 0.0, 10, "#FFEA00"),
+		new Point(260-a, 100+b, 0.0, 10, "#0B7306"),
+		new Point(275-a, 120+b, 0.0, 11, "#FFEA00"),
+		new Point(275-a, 145+b, 0.0, 11, "#0B7306"),
+		new Point(275-a, 170+b, 0.0, 11, "#FFEA00"),
+		new Point(275-a, 185+b, 0.0, 11, "#0B7306"),
+		new Point(275-a, 200+b, 0.0, 14, "#FFEA00"),
+		
+		new Point(255-a, 145+b, 0.0, 12, "#0B7306"),
+		new Point(235-a, 145+b, 0.0, 12, "#FFEA00"),
+		new Point(215-a, 165+b, 0.0, 12, "#0B7306"),
+		new Point(215-a, 185+b, 0.0, 12, "#FFEA00"),
+		new Point(215-a, 200+b, 0.0, 12, "#0B7306"),
+		new Point(235-a, 210+b, 0.0, 12, "#FFEA00"),
+		new Point(255-a, 200+b, 0.0, 12, "#0B7306"),
+		
+		//C
+		
+		new Point(355-a, 200+b, 0.0, 13, "#FFEA00"),
+		new Point(330-a, 200+b, 0.0, 11, "#0B7306"),
+		new Point(320-a, 180+b, 0.0, 11, "#FFEA00"),
+		new Point(320-a, 160+b, 0.0, 10, "#0B7306"),
+		new Point(320-a, 140+b, 0.0, 11, "#FFEA00"),
+		new Point(330-a, 120+b, 0.0, 11, "#0B7306"),
+		new Point(345-a, 100+b, 0.0, 12, "#FFEA00"),
+		new Point(365-a, 110+b, 0.0, 13, "#0B7306"),
+		
+		//J
+		new Point(370-a, 240+b, 0.0, 12, "#ED0909"),
+		new Point(380-a, 255+b, 0.0, 12, "#ed9d33"),
+		new Point(390-a, 260+b, 0.0, 12, "#ED0909"),
+		new Point(400-a, 260+b, 0.0, 12, "#ed9d33"),
+		new Point(420-a, 245+b, 0.0, 12, "#ED0909"),
+		new Point(420-a, 220+b, 0.0, 12, "#ed9d33"),
+		
+		
+		
+		
+		new Point(420-a, 200+b, 0.0, 12, "#ED0909"),
+		new Point(420-a, 180+b, 0.0, 11, "#ed9d33"),
+		new Point(420-a, 165+b, 0.0, 12, "#ED0909"),
+		new Point(420-a, 145+b, 0.0, 11, "#ed9d33"),
+		new Point(420-a, 125+b, 0.0, 12, "#ED0909"),
+		new Point(420-a, 100+b, 0.0, 11, "#ed9d33"),
+		new Point(420-a, 30+b, 0.0, 30, "#ED0909"),
+		
+		//O
+		
+		new Point(530-a, 200+b, 0.0, 13, "#ed9d33"),
+		new Point(510-a, 200+b, 0.0, 11, "#ED0909"),
+		new Point(490-a, 200+b, 0.0, 13, "#ed9d33"),
+		new Point(480-a, 180+b, 0.0, 12, "#ED0909"),
+		new Point(480-a, 160+b, 0.0, 14, "#ed9d33"),
+		new Point(480-a, 145+b, 0.0, 11, "#ED0909"),
+		new Point(480-a, 125+b, 0.0, 13, "#ed9d33"),
+		new Point(490-a, 100+b, 0.0, 11, "#ED0909"),
+		new Point(510-a, 100+b, 0.0, 13, "#ed9d33"),		
+		new Point(530-a, 100+b, 0.0, 11, "#ED0909"),
+		new Point(545-a, 120+b, 0.0, 12, "#ed9d33"),
+		new Point(545-a, 140+b, 0.0, 14, "#ED0909"),
+		new Point(545-a, 165+b, 0.0, 11, "#ed9d33"),
+		new Point(545-a, 175+b, 0.0, 12, "#ED0909"),
+		new Point(545-a, 190+b, 0.0, 14, "#ed9d33"),
+		
+		//P
+		
+		
+		
+		
+		new Point(580-a, 200+b, 0.0, 14, "#ED0909"),
+		new Point(580-a, 220+b, 0.0, 14, "#ed9d33"),
+		new Point(580-a, 235+b, 0.0, 14, "#ED0909"),
+		new Point(580-a, 255+b, 0.0, 14, "#ed9d33"),
+		new Point(580-a, 270+b, 0.0, 14, "#ED0909"),
+		
+		new Point(630-a, 200+b, 0.0, 14, "#ed9d33"),
+		new Point(610-a, 200+b, 0.0, 14, "#ED0909"),
+		new Point(580-a, 200+b, 0.0, 14, "#ed9d33"),
+		new Point(580-a, 180+b, 0.0, 14, "#ED0909"),
+		new Point(580-a, 160+b, 0.0, 14, "#ed9d33"),
+		new Point(580-a, 145+b, 0.0, 14, "#ED0909"),
+		new Point(580-a, 125+b, 0.0, 14, "#ed9d33"),
+		new Point(590-a, 100+b, 0.0, 14, "#ED0909"),
+		new Point(610-a, 100+b, 0.0, 14, "#ed9d33"),		
+		new Point(630-a, 100+b, 0.0, 14, "#ED0909"),
+		new Point(645-a, 120+b, 0.0, 14, "#ed9d33"),
+		new Point(645-a, 140+b, 0.0, 14, "#ED0909"),
+		new Point(645-a, 165+b, 0.0, 14, "#ed9d33"),
+		new Point(645-a, 175+b, 0.0, 14, "#ED0909"),
+		new Point(645-a, 190+b, 0.0, 14, "#ed9d33"),
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		];
 		
 		gLength = g.length;
 		for (var i = 0; i < gLength; i++) {
